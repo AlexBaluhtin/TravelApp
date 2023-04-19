@@ -22,7 +22,7 @@ struct MainView: View {
             Text("Welcome.\nThis is travel app.")
               .font(Font(.init(.label, size: 32)))
               .multilineTextAlignment(.leading)
-            
+              .foregroundColor(.black)
             
           }
                  .padding(.top, 124)
@@ -47,6 +47,7 @@ struct MainView: View {
             
             NavigationLink(destination: SignInView(), label: {
               Text("Login with Email")
+              
             })
             .frame(height: 52)
             .frame(maxWidth: .infinity)

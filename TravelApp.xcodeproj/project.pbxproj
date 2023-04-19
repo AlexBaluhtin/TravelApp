@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		046453BA29EDDE86000B076C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046453B929EDDE86000B076C /* UserModel.swift */; };
+		048E9EC329F08FE200A152DF /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E9EC229F08FE200A152DF /* NavigationConfigurator.swift */; };
+		048E9EC729F093E200A152DF /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E9EC629F093E200A152DF /* AuthService.swift */; };
+		048E9ECA29F0948600A152DF /* Mappble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E9EC929F0948500A152DF /* Mappble.swift */; };
 		049D348429E23F3900E4E318 /* BlueButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D348329E23F3900E4E318 /* BlueButtonStyle.swift */; };
 		04BAF6E129E964F1006BE7F2 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BAF6E029E964F1006BE7F2 /* SplashScreenView.swift */; };
 		04BAF73C29E9B857006BE7F2 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BAF73B29E9B857006BE7F2 /* SignInView.swift */; };
@@ -27,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		046453B929EDDE86000B076C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		048E9EC229F08FE200A152DF /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
+		048E9EC629F093E200A152DF /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		048E9EC929F0948500A152DF /* Mappble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappble.swift; sourceTree = "<group>"; };
 		049D348329E23F3900E4E318 /* BlueButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueButtonStyle.swift; sourceTree = "<group>"; };
 		04BAF6E029E964F1006BE7F2 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		04BAF73B29E9B857006BE7F2 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -64,6 +70,80 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		048E9EBC29F088EE00A152DF /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				048E9EBD29F0890400A152DF /* AppFlow */,
+				04D2FE9629D4215B007A003A /* AuthFlow */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		048E9EBD29F0890400A152DF /* AppFlow */ = {
+			isa = PBXGroup;
+			children = (
+				04D2FE8829D41C78007A003A /* TravelAppApp.swift */,
+				04BAF6E029E964F1006BE7F2 /* SplashScreenView.swift */,
+			);
+			path = AppFlow;
+			sourceTree = "<group>";
+		};
+		048E9EBE29F0895600A152DF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				049D348029E23EF000E4E318 /* Extension */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		048E9EBF29F0895B00A152DF /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				048E9EC829F0946F00A152DF /* Protocols */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		048E9EC029F0896400A152DF /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				048E9EC429F093B200A152DF /* NetworkWorker */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		048E9EC129F08FC600A152DF /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				048E9EC229F08FE200A152DF /* NavigationConfigurator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		048E9EC429F093B200A152DF /* NetworkWorker */ = {
+			isa = PBXGroup;
+			children = (
+				048E9EC529F093C800A152DF /* Services */,
+			);
+			path = NetworkWorker;
+			sourceTree = "<group>";
+		};
+		048E9EC529F093C800A152DF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				048E9EC629F093E200A152DF /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		048E9EC829F0946F00A152DF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				048E9EC929F0948500A152DF /* Mappble.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		049D348029E23EF000E4E318 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +155,7 @@
 		049D348129E23EFD00E4E318 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				048E9EC129F08FC600A152DF /* Navigation */,
 				049D348229E23F0400E4E318 /* Button */,
 			);
 			path = UI;
@@ -91,16 +172,11 @@
 		04BAF73F29E9BD74006BE7F2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				04BAF74029E9BD7A006BE7F2 /* View */,
+				048E9EC029F0896400A152DF /* Workers */,
+				048E9EBF29F0895B00A152DF /* Logic */,
+				048E9EBE29F0895600A152DF /* UI */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		04BAF74029E9BD7A006BE7F2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		04BD7EED29DA0883007DBD22 /* MainView */ = {
@@ -146,12 +222,9 @@
 		04D2FE8729D41C78007A003A /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				048E9EBC29F088EE00A152DF /* Modules */,
 				046453B829EDDE17000B076C /* Models */,
 				04BAF73F29E9BD74006BE7F2 /* Utils */,
-				049D348029E23EF000E4E318 /* Extension */,
-				04D2FE9629D4215B007A003A /* AuthFlow */,
-				04D2FE8829D41C78007A003A /* TravelAppApp.swift */,
-				04BAF6E029E964F1006BE7F2 /* SplashScreenView.swift */,
 				04D2FE8C29D41C7B007A003A /* Assets.xcassets */,
 				04D2FEAA29D56ED0007A003A /* GoogleService-Info.plist */,
 				04D2FE8E29D41C7B007A003A /* Preview Content */,
@@ -283,7 +356,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				049D348429E23F3900E4E318 /* BlueButtonStyle.swift in Sources */,
+				048E9ECA29F0948600A152DF /* Mappble.swift in Sources */,
 				046453BA29EDDE86000B076C /* UserModel.swift in Sources */,
+				048E9EC329F08FE200A152DF /* NavigationConfigurator.swift in Sources */,
+				048E9EC729F093E200A152DF /* AuthService.swift in Sources */,
 				04BD7EF129DA0929007DBD22 /* MainView.swift in Sources */,
 				04D2FE8929D41C78007A003A /* TravelAppApp.swift in Sources */,
 				04BAF6E129E964F1006BE7F2 /* SplashScreenView.swift in Sources */,
