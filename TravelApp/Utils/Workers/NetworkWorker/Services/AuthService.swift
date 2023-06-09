@@ -7,36 +7,40 @@
 
 import Foundation
 import FirebaseAuth
+import Combine
 
 protocol AuthService {
-  
-  typealias Handler<T> = (Result<T, Error>) -> ()
-  
-  func signUp(_ email: String, _ password: String) async throws -> FirebaseAuth.User
-  
-  func signIn(_ email: String, _ password: String) async throws -> FirebaseAuth.User
-  
+  func signUp(email: String, password: String, userName: String) async throws
+  func signIn(_ email: String, _ password: String) async throws
   func delete() async throws
-  
   func logout() async throws
-  
 }
 
-class AuthServiceImp: AuthService {
+final class AuthServiceImp: AuthService, ObservableObject {
   
-  func signUp(_ email: String, _ password: String) async throws -> FirebaseAuth.User {
+  static let shared = AuthServiceImp()
+  
+  @Published var userSession: FirebaseAuth.User?
+  
+  init() {
+    self.userSession = Auth.auth().currentUser
+  }
+  
+  @MainActor
+  func signUp(email: String, password: String, userName: String) async throws {
     do {
       let result = try await Auth.auth().createUser(withEmail: email, password: password)
-      return result.user
+      self.userSession = result.user
     } catch {
       throw error
     }
   }
   
-  func signIn(_ email: String, _ password: String) async throws -> FirebaseAuth.User {
+  @MainActor
+  func signIn(_ email: String, _ password: String) async throws {
     do {
       let result = try await Auth.auth().signIn(withEmail: email, password: password)
-      return result.user
+      self.userSession = result.user
     } catch {
       throw error
     }
@@ -52,11 +56,8 @@ class AuthServiceImp: AuthService {
     }
   }
   
-  func logout() async throws {
-    do {
-      try await Auth.auth().signOut()
-    } catch {
-      throw error
-    }
+  func logout(){
+    try? Auth.auth().signOut()
+    self.userSession = nil
   }
 }

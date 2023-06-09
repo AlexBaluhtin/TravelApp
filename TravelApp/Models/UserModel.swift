@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import FirebaseAuth
 
-struct User: Identifiable {
-  var id = UUID()
-  var firstName = String()
-  var lastName = String()
-  var email = String()
+struct UserModel {
+  let uid: String
+  let email: String?
+  
+  init(user: User) {
+    self.uid = user.uid
+    self.email = user.email
+  }
 }

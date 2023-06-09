@@ -23,7 +23,9 @@ struct TravelAppApp: App {
   
     var body: some Scene {
         WindowGroup {
-          SplashScreenView()
+          NavigationView {
+            SplashScreenView()
+          }
         }
     }
 }

@@ -5,38 +5,41 @@
 //  Created by Alex Balukhtsin on 14.04.23.
 //
 
+import FirebaseAuth
 import SwiftUI
 
 struct SplashScreenView: View {
   @State private var isActive = false
   @State private var opacity = 0.1
+  
+  @StateObject var viewModel = SplashScreenViewModel()
+  
+  @ObservedObject var authService = AuthServiceImp()
+  
   var body: some View {
     if isActive {
-      MainView()
+      Group {
+        if viewModel.userSession == nil {
+          MainView()
+        } else {
+          MainTabView()
+        }
+      }
     } else {
       ZStack {
-        VStack(alignment: .leading,
-               spacing: 20) {
+        VStack {
           
-          Image("M")
+          Image("splashLogo")
             .aspectRatio(contentMode: .fill)
-            .frame(width: 60, height: 60)
-          
-          Text("Welcome.\nThis is travel app.")
-            .font(Font(.init(.label, size: 32)))
-            .multilineTextAlignment(.leading)
-          
-          
+            .frame(width: 80, height: 80)
         }
-               .opacity(opacity)
-               .padding(.top, 124)
-               .padding(.leading, 24)
-               .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-               .onAppear {
-                 withAnimation(.easeIn(duration: 1.2)) {
-                   self.opacity = 1.0
-                 }
-               }
+        .opacity(opacity)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+        .onAppear {
+          withAnimation(.easeIn(duration: 1.2)) {
+            self.opacity = 1.0
+          }
+        }
         
         
       }
@@ -46,12 +49,12 @@ struct SplashScreenView: View {
         }
       }
       .background(Color.white)
-  }
     }
+  }
 }
 
 struct SplashScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        SplashScreenView()
-    }
+  static var previews: some View {
+    SplashScreenView(authService: AuthServiceImp())
+  }
 }

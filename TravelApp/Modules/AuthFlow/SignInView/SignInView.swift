@@ -10,50 +10,79 @@ import SwiftUI
 struct SignInView: View {
   @Environment(\.dismiss) var dismiss
   
-  @State private var email: String = ""
-  @State private var password: String = ""
+  @ObservedObject var viewModel = SignInViewModel(authService: AuthServiceImp.shared)
   
   var body: some View {
     NavigationView {
       ZStack {
         VStack(alignment: .leading) {
-          Text("Email")
-            .foregroundColor(.black)
-          TextField("Type your email ...", text: $email)
-            .foregroundColor(.black)
-          Divider()
           
-          Text("Password")
+          // login
+          TextField("Type your email ...", text: $viewModel.username)
+            .autocapitalization(.none)
+            .padding(12)
+            .background(Color("fields"))
             .foregroundColor(.black)
-          SecureField("Type password ...", text: $password)
+            .cornerRadius(6)
+          
+          // password
+          SecureField("Type password ...", text: $viewModel.password)
             .foregroundColor(.black)
-          Divider()
+            .autocapitalization(.none)
+            .padding(12)
+            .background(Color("fields"))
+            .foregroundColor(.black)
+            .cornerRadius(6)
           
-          //Spacer()
-          
+          // sign in
           Button(action: {
-            print("pressed")})
+            print("pressed")
+            Task {
+              do {
+                try await viewModel.signIn()
+              } catch {
+                print("Error registration: \(error.localizedDescription)")
+              }
+            }
+          })
           {
             Text("Sign In")
+              .font(.system(size: 20, weight: .regular, design: .rounded))
           }
-          .frame(height: 52)
+          .frame(height: 56)
           .frame(maxWidth: .infinity)
-          .background(Color.blue)
-          .cornerRadius(4)
-          .buttonStyle(BlueButtonStyle())
-          .padding(.top, 12)
+          .background(Color("mainAccent"))
+          .cornerRadius(28)
+          .padding(.top, 30)
+          .buttonStyle(.plain)
           .foregroundColor(.white)
+          
+          // forgot password
+          
+          Button(action: {
+            print("pressed")
+          })
+          {
+            Text("Forgot your password?")
+              .font(.system(size: 13, weight: .regular, design: .rounded))
+          }
+          .frame(maxWidth: .infinity)
+          .padding(.top, 16)
+          .foregroundColor(.black)
+          
+          
         }
         .background(Color.white)
         .padding(.top, 12)
         .padding(.leading, 24)
         .padding(.trailing, 24)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
+        
       }
       .background(Color.white)
     }
     .navigationBarTitleDisplayMode(.large)
-    .navigationTitle("Login with email")
+    .navigationTitle("Sign in")
     
     .navigationBarBackButtonHidden()
     .toolbar {
