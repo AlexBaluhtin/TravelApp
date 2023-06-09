@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>454423804907-4g0jap9bt7s8cljkktou2p6racf59prb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.454423804907-4g0jap9bt7s8cljkktou2p6racf59prb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBWds6Nilri2KKbPbWBB2gbYWA-ppqJJhQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>454423804907</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Aliaksei-Balukhtsin.TravelApp</string>
+	<key>PROJECT_ID</key>
+	<string>trevelapp-8669c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>trevelapp-8669c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:454423804907:ios:0c365b7c25c46e0ab437ae</string>
+</dict>
+</plist>
